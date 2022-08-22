@@ -1,13 +1,82 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.registerForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.registerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectRoleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.classRoomContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.singleClass {
+  border: solid 2px;
+}
+
+/* .todayDate {
+  margin-left: 0;
+} */
+
+.presentCell {
+  background-color: #8bc34a;
+}
+
+.absentCell {
+  background-color: #ffcdd2;
+}
+.sickCell {
+  background-color: #ffb74d;
+}
+.leaveCell {
+  background-color: #9575cd;
+}
+
+.viewAttendanceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.attendanceMainHeader {
+  background-color: #90a4ae;
+}
+
+.attendanceSecondaryHeader {
+  background-color: #d9d9d9;
+}
+
+.studentNameColumn {
+  background-color: #bbdefb;
+}
+
+.navContainer {
+  background-color: #d9d9d9;
+}
+
+.navList {
+  list-style-type: none;
+  display: flex;
+}
+
+.navList > li {
+  margin: 20px;
 }
