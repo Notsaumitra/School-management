@@ -1,5 +1,4 @@
 import { Button } from "@mui/material";
-import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -12,14 +11,24 @@ import { useNavigate } from "react-router-dom";
 
 const ClassRoom = () => {
   // const { classRoom } = useSelector((store) => store.classroom);
-  const { isLoading, isSuccess, data } = useGetAllClassesQuery();
+  const { isLoading, isSuccess, data: classData } = useGetAllClassesQuery();
   const navigate = useNavigate();
   const gotoAttendance = (classId) => {
     navigate(`${classId}`);
   };
-  const gotoLessonPlan = (classId) => {};
+  const gotoAttendanceView = (classId) => {
+    navigate(`${classId}/viewAttendance`);
+  };
 
-  const gotoStudentDetails = (classId) => {};
+  const gotoStudentMeals = (classId) => {
+    navigate(`/meals/${classId}`);
+  };
+  let newData;
+  if (classData?.data) {
+    newData = [...classData.data];
+    newData?.sort((a, b) => a.classId - b.classId);
+    console.log(newData);
+  }
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -29,48 +38,52 @@ const ClassRoom = () => {
     return (
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
+          <TableHead sx={{ backgroundColor: "#8bc34a" }}>
             <TableRow>
               <TableCell>S. No.</TableCell>
-              <TableCell>Class</TableCell>
-              <TableCell>Number of Students</TableCell>
-              <TableCell>View Student Details</TableCell>
-              <TableCell>Attendance Details</TableCell>
-              <TableCell>Lesson Plan Details</TableCell>
+              <TableCell align="center">Class</TableCell>
+              <TableCell align="center">Number of Students</TableCell>
+              <TableCell align="center">Add Attendance</TableCell>
+              <TableCell align="center">Attendance Details</TableCell>
+              <TableCell align="center">Edit/View Meals</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {data.data.map((singleClass) => (
+          <TableBody sx={{ backgroundColor: "#fff9c4" }}>
+            {newData.map((singleClass) => (
               <TableRow key={singleClass.classId}>
-                <TableCell>{singleClass.classId}</TableCell>
-                <TableCell>{singleClass.className}</TableCell>
-                <TableCell>{singleClass.students.length}</TableCell>
-                <TableCell>
-                  <Button
-                    size="small"
-                    onClick={() => gotoStudentDetails(singleClass.classId)}
-                  >
-                    View Student Details
-                  </Button>
+                <TableCell align="center">{singleClass.classId}</TableCell>
+                <TableCell align="center">{singleClass.className}</TableCell>
+                <TableCell align="center">
+                  {singleClass.students.length}
                 </TableCell>
-                <TableCell>
+                <TableCell align="center">
                   <Button
                     variant="contained"
                     color="inherit"
                     size="small"
                     onClick={() => gotoAttendance(singleClass.classId)}
                   >
+                    Add Attendance
+                  </Button>
+                </TableCell>
+                <TableCell align="center">
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    size="small"
+                    onClick={() => gotoAttendanceView(singleClass.classId)}
+                  >
                     View Attendance
                   </Button>
                 </TableCell>
-                <TableCell>
+                <TableCell align="center">
                   <Button
-                    variant="contained"
-                    color="success"
                     size="small"
-                    onClick={() => gotoLessonPlan(singleClass.classId)}
+                    color="success"
+                    variant="outlined"
+                    onClick={() => gotoStudentMeals(singleClass.classId)}
                   >
-                    View Lesson Plan
+                    View / Edit Meals
                   </Button>
                 </TableCell>
               </TableRow>

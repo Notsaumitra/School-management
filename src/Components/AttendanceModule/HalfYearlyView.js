@@ -120,16 +120,16 @@ const HalfYearlyView = ({ attendanceDetails }) => {
                   {stu.attendance.map((hf, index) => (
                     <React.Fragment key={index}>
                       <TableCell className="presentCell" align="center">
-                        {hf.present}/{attendanceDetails.length}
+                        {hf.present}/180
                       </TableCell>
                       <TableCell className="absentCell" align="center">
-                        {hf.absent}/{attendanceDetails.length}
+                        {hf.absent}/180
                       </TableCell>
                       <TableCell className="sickCell" align="center">
-                        {hf.sick}/{attendanceDetails.length}
+                        {hf.sick}/180
                       </TableCell>
                       <TableCell className="leaveCell" align="center">
-                        {hf.leave}/{attendanceDetails.length}
+                        {hf.leave}/180
                       </TableCell>
                     </React.Fragment>
                   ))}

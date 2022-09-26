@@ -91,16 +91,16 @@ const Yearly = ({ attendanceDetails }) => {
                     {stu.firstName + " " + stu.lastName}
                   </TableCell>
                   <TableCell className="presentCell" align="center">
-                    {stu.present}/{attendanceDetails.length}
+                    {stu.present}/360
                   </TableCell>
                   <TableCell className="absentCell" align="center">
-                    {stu.absent}/{attendanceDetails.length}
+                    {stu.absent}/360
                   </TableCell>
                   <TableCell className="sickCell" align="center">
-                    {stu.sick}/{attendanceDetails.length}
+                    {stu.sick}/360
                   </TableCell>
                   <TableCell className="leaveCell" align="center">
-                    {stu.leave}/{attendanceDetails.length}
+                    {stu.leave}/360
                   </TableCell>
                 </TableRow>
               ))}

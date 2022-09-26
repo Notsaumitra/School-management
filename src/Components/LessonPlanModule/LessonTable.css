@@ -1,0 +1,16 @@
+.timeNameCell {
+  color: white;
+  font-size: 8px;
+  bottom: 0;
+}
+
+.timeCellSubject {
+  color: white;
+  font-size: 12px;
+}
+
+.timeCellTeacher {
+  color: white;
+
+  font-size: 10px;
+}

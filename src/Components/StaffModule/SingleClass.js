@@ -10,6 +10,8 @@ const SingleClass = () => {
   // const navigate = useNavigate();
   const { classId } = useParams();
   const { data, isSuccess, error } = useGetClassQuery(classId);
+  const fetchedData = useGetClassQuery(classId);
+  console.log(fetchedData);
 
   const setAttendanceDate = (date) => {
     setSelectedDate(date);

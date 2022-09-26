@@ -112,16 +112,16 @@ const MonthlyView = ({ attendanceDetails, months }) => {
                     {stu.attendance.map((mon, index) => (
                       <React.Fragment key={index}>
                         <TableCell className="presentCell" align="center">
-                          {mon.present}/{attendanceDetails.length}
+                          {mon.present}/30
                         </TableCell>
                         <TableCell className="absentCell" align="center">
-                          {mon.absent}/{attendanceDetails.length}
+                          {mon.absent}/30
                         </TableCell>
                         <TableCell className="sickCell" align="center">
-                          {mon.sick}/{attendanceDetails.length}
+                          {mon.sick}/30
                         </TableCell>
                         <TableCell className="leaveCell" align="center">
-                          {mon.leave}/{attendanceDetails.length}
+                          {mon.leave}/30
                         </TableCell>
                       </React.Fragment>
                     ))}
